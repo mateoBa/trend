@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Trends</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.css' %}"/>
+</head>
+<body>
+    {% block body %}
+        <div class="container">
+            <h2>Bienvenido a Trend, por Mateo Basaldúa, la pseudo copia de Real Trends</h2>
+            <h3 class="text-muted">Con esta aplicación podrá ver y crear publicaciones de Mercado Libre.</h3>
+            <div class="text-center" style="margin-top: 10%;">
+                <a href="{% url 'ml:login' %}" class="btn btn-lg btn-success">Ingresar</a>
+            </div>
+        </div>
+    {% endblock body %}
+</body>
+</html>

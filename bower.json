@@ -1,0 +1,22 @@
+{
+  "name": "Mateo",
+  "homepage": "https://github.com/mateoba/trend",
+  "authors": [
+    "mateoba <mateobasaldua@gmail.com>"
+  ],
+  "description": "Test Project for Real Trends",
+  "directory": "static/",
+  "main": "Trend",
+  "keywords": [
+    "real-trends", "mercado libre"
+  ],
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "angular-route": "^1.5.8",
+    "angular": "^1.5.8",
+    "bootstrap": "^3.3.7",
+    "angular-resource": "^1.5.8",
+    "angular-bootstrap": "^2.1.3"
+  }
+}
