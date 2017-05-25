@@ -12,3 +12,4 @@ static/polymer/
 static/webcomponentsjs/
 static/angular-resource/
 static/angular-route/
+db.sqlite3
