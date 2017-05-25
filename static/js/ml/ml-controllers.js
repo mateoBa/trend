@@ -59,9 +59,7 @@ ml_controller.controller('createPubCtrl', ['$scope', '$window' , 'mlService',
                             available_quantity: publication.stock, pictures: pictures, category_id: 'MLA352543', listing_type_id: 'bronze'};
         mlService.savePublication(data_to_save).then(
             function(res){
-                console.log(res);
                 console.log(res.data);
-                console.log(res.data.status);
                 if (res.data.status === 'active') {
                     alert('Se creó correctamente la reserva');
                     $window.location.href = '/#!/publications';
