@@ -1,35 +1,49 @@
-var contact_service = angular.module('contacts.services', ['ngResource']);
+var ml_service = angular.module('ml.services', ['ngResource']);
 
-contact_service.service('contactService', ['$http', function($http) {
+ml_service.service('mlService', ['$http', function($http) {
 
-    this.getContactTypes = function() {
+    this.login = function(){
         return $http({
             method: 'GET',
-            url: '/api/v1/contact_types/'
+            url: '/login'
         });
     };
-}]);
 
-contact_service.factory('persons', ['$resource',
-  function($resource) {
-    return $resource('/api/v1/persons/:personId', {}, {
-      query: {
-            method: "GET",
-            isArray: true,
-            transformResponse: function (data) {
-                var wrappedResult = angular.fromJson(data);
-                var meta = {
-                    'count': wrappedResult.count
-                };
-                wrappedResult.results.$meta = meta;
-                return wrappedResult.results;
-            },
-            interceptor: {
-                response: function (response) {
-                    response.resource.$meta = response.data.$meta;
-                    return response.resource;
-                }
-            }
-      }
-  });
+    this.getClientData = function(){
+        return $http({
+            method: 'GET',
+            url: '/get_client_data/'
+        });
+    };
+
+    this.getPublications = function(client_id) {
+        return $http({
+            method: 'GET',
+            url: '/get_publications/',
+            params: {client_id: client_id}
+        });
+    };
+
+    this.getPublication = function(publication_id){
+        return $http({
+            method: 'GET',
+            url: '/get_publication/',
+            params: {publication_id: publication_id}
+        });
+    };
+
+    this.savePublication = function (publication) {
+        return $http({
+            method: 'POST',
+            url: '/save_publication/',
+            data: publication
+        })
+    };
+
+    this.logout = function () {
+        return $http({
+            method: 'GET',
+            url: '/logout/'
+        })
+    }
 }]);

@@ -1,0 +1,14 @@
+.idea
+*.pyc
+*~
+static/App States/
+static/angular-bootstrap/
+static/angular-resource/static/angular-route/
+static/angular/
+static/bootstrap/
+static/core-component-page/
+static/jquery/
+static/polymer/
+static/webcomponentsjs/
+static/angular-resource/
+static/angular-route/

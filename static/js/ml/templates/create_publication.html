@@ -1,0 +1,34 @@
+
+<div class="col-md-8">
+    <h3 class="text-info">Crear Publicación</h3>
+    <form name="publicationForm">
+      <div class="form-group">
+        <label for="title">Título</label>
+        <input type="text" class="form-control" id="title" ng-model="publication.title"
+               placeholder="Espectacular Chevrolet Celta 5 puertas" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Descripción</label>
+        <textarea class="form-control" id="description" rows="3" ng-model="publication.description" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="price">Precio</label>
+        <input type="number" class="form-control" id="price" min="1" ng-model="publication.price" required>
+      </div>
+      <div class="form-group">
+        <label for="stock">Cantidad</label>
+        <input type="number" class="form-control" id="stock" min="1" ng-model="publication.stock" required>
+        <small id="stockHelp" class="form-text text-muted">Cantidad disponible para la venta</small>
+      </div>
+      <div class="form-group">
+        <label for="image">Imagen</label>
+        <input type="text" class="form-control" id="image" placeholder="url de imagen" ng-model="publication.image1" required>
+        <small id="imageHelp" class="form-text text-muted">Imagen principal de su publicación</small>
+      </div>
+      <div class="form-group">
+        <label for="imageComplementary">Imagen complementaria</label>
+        <input type="text" class="form-control" id="exampleInputFile" ng-model="publication.image2" placeholder="url de imagen">
+      </div>
+      <button ng-disabled="publicationForm.$invalid" class="btn btn-info btn-lg" ng-click="save(publication)">Guardar</button>
+    </form>
+</div>

@@ -1,0 +1,44 @@
+
+<div>
+    <h3 class="text-success" ng-hide="error">
+        Bienvenido {{ client.first_name }} {{ client.last_name }} ({{ client.nickname }})
+    </h3>
+    <h3 ng-show="error" class="text-danger">{{ error }}</h3>
+    <h4 ng-show="error_description" class="text-danger">{{ error_description }}</h4>
+</div>
+<div class="container-fluid" ng-show="publications.length">
+    <h3 class="text-muted">Publicaciones Activas</h3>
+    <ul>
+        <li ng-repeat="publication in publications |  orderBy:'-toString()'">
+            <a href="javascript:void(0)" data-toggle="modal" data-target="#publication_details" ng-click="get_publication_detail(publication)">{{ publication }}</a>
+        </li>
+    </ul>
+    <div id="publication_details" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+        <div class="modal-dialog modal-md" role="document" style="width: 50%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="gridSystemModalLabel">Detalles de {{ publication.title }}</h4>
+                </div>
+                <div class="modal-body">
+                   <div class="form-group">
+                    <label>Condition</label> {{ publication.condition }}
+                   </div>
+                   <div class="form-group">
+                    <label>Precio</label> {{ publication.currency_id }} {{ publication.price }}
+                   </div>
+                   <div class="form-group">
+                    <label>Stock</label> {{ publication.available_quantity }}
+                   </div>
+                   <div class="form-group">
+                    <label>Unidades Vendidas</label> {{ publication.sold_quantity }}
+                   </div>
+                   <div class="form-group">
+                       <img src="{{ publication.thumbnail }}">
+                   </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<h4 class="text-danger" ng-show="!publications.length">No tienes publicaciones activas</h4>

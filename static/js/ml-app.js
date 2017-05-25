@@ -15,25 +15,24 @@ application.config(['$httpProvider', function($httpProvider) {
 application.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
-            when('/login', {
-                templateUrl: '/static/js/ml/templates/login.html',
-                controller: 'controlSessionCtrl'
+            when('/main', {
+                templateUrl: '/static/js/ml/templates/main.html',
+                controller: 'mainCtrl'
             }).
-            when('/publications_list', {
+            when('/publications', {
                 templateUrl: '/static/js/ml/templates/publications.html',
                 controller: 'publicationCtrl'
             }).
             when('/create_publication', {
                 templateUrl: '/static/js/ml/templates/create_publication.html',
-                controller: 'publicationCtrl'
+                controller: 'createPubCtrl'
             }).
             when('/publication_detail/:publicationId', {
                 templateUrl: '/static/js/ml/templates/publication_detail.html',
                 controller: 'publicationCtrl'
             }).
             otherwise({
-                templateUrl: '/static/js/app/contacts/404.html',
-                controller: 'controlSessionCtrl'
+                redirectTo: '/main'
             });
 }]);
 
