@@ -1,0 +1,25 @@
+{% extends "ml_django/base.html" %}
+{% load templates_extra %}
+
+{% block body %}
+    <div>
+        <h3 class="text-success">
+            Bienvenido {{ user.first_name }} {{ user.last_name }} ({{ user.nickname }})
+        </h3>
+        <h4 class="text-muted">Experiencia de vendedor: {{ user.seller_experience }}</h4>
+    </div>
+    {% if publications %}
+    <div class="container-fluid">
+        <h3 class="text-muted">Publicaciones Activas</h3>
+        <ul>
+            {% for pub in publications %}
+            <li>
+                <pre>{{ pub|get_publication_details:token}}</pre>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% else %}
+        <h4 class="text-danger">No tienes publicaciones activas</h4>
+    {% endif %}
+{% endblock %}

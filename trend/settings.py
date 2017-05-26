@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     # ours
-    'ml'
+    'ml',
+    'ml_django'
 ]
 
 MIDDLEWARE = [
@@ -141,3 +142,7 @@ REST_FRAMEWORK = {
 CLIENT_ID = 2339502050709160
 CLIENT_SECRET = 'EbaRXmXHk6a1LjSUHxwYnO58PLfF78q8'
 REDIRECT_URL = "https://64e6d658.ngrok.io/callback_from_ml"
+
+CLIENT_ID_FOR_DJANGO = 5688519220726809
+CLIENT_SECRET_FOR_DJANGO = '0NhpzptkFM7FNL8T5wyoKVTsTPOXYSRH'
+REDIRECT_URL_FOR_DJANGO = "https://64e6d658.ngrok.io/trend/publications"

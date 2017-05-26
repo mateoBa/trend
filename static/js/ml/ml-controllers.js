@@ -61,7 +61,7 @@ ml_controller.controller('createPubCtrl', ['$scope', '$window' , 'mlService',
             function(res){
                 console.log(res.data);
                 if (res.data.status === 'active') {
-                    alert('Se creó correctamente la reserva');
+                    alert('La Publicación se creó correctamente');
                     $window.location.href = '/#!/publications';
                 }else{
                    alert('Error: status_code ' + res.data.status + '. '+res.data.error)

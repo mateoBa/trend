@@ -1,6 +1,5 @@
 from django.conf.urls import url
 from django.views.generic import TemplateView
-from rest_framework.routers import DefaultRouter, SimpleRouter
 
 from . import api
 
@@ -15,5 +14,3 @@ urlpatterns = [
     url(r'^logout/$', api.logout, name='logout')
 ]
 
-ml_router = SimpleRouter()
-# ml_router.register(r'users', api.UserViewSet)

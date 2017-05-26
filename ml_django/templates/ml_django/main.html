@@ -1,0 +1,13 @@
+{% extends "ml_django/base.html" %}
+
+{% block body %}
+<div class="text-center">
+    <h2>Bienvenido a Trend, proyecto de test para Real Trends</h2>
+
+    <h3 class="text-muted">Aplicación para ver y crear publicaciones de Mercado Libre</h3>
+
+    <div style="margin-top: 10%;">
+        <a href="{% url 'trend_django:login' %}" class="btn btn-lg btn-success">Ingresar</a>
+    </div>
+</div>
+{% endblock %}

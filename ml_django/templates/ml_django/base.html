@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Trends with Django</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}"/>
+
+</head>
+<body>
+    <header>
+        {% block nav %}
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header pull-right">
+              <a class="navbar-brand" href="{% url 'trend_django:publications' %}">
+                  <span class="glyphicon glyphicon-th-list"></span> Publicaciones</a>
+              <a class="navbar-brand" href="{% url 'trend_django:create_publication' %}">
+                  <span class="glyphicon glyphicon-globe"></span> Crear Publicación</a>
+              <a class="navbar-brand" href="{% url 'trend_django:logout' %}">
+                <span class="glyphicon glyphicon-off"></span> Salir </a>
+            </div>
+          </div>
+        </nav>
+        {% endblock %}
+    </header>
+    <div class="container">
+        <div class="container-fluid" >
+            <div class="row">
+            {% block body %}{% endblock body %}
+            </div>
+        </div>
+    </div>
+
+    <footer>
+    {% block footer %}{% endblock footer %}
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+{% extends "ml_django/base.html" %}
+
+{% block body %}
+  <div class="col-md-8">
+      <h3 class="text-info">Crear Publicación</h3>
+        <form action="." method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_title">Titulo:</label>
+                <input type="text" class="form-control" name="title" required="" id="id_title" maxlength="100">
+            </div>
+            <div class="form-group">
+                <label for="id_description">Description:</label>
+                <textarea class="form-control" name="description" id="id_description" rows="3" maxlength="500"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="id_price">Precio:</label>
+                <input type="number" class="form-control" name="price" required="" id="id_price">
+            </div>
+            <div class="form-group">
+                <label for="id_stock">Cantidad:</label>
+                <input type="number" class="form-control" name="stock" required="" id="id_stock">
+            </div>
+            <div class="form-group">
+                <label for="id_imagen1">Imagen:</label>
+                <input type="url" class="form-control" name="imagen1" required="" id="id_imagen1" maxlength="100">
+            </div>
+            <div class="form-group">
+                <label for="id_imagen2">Imagen Complementaria:</label>
+                <input type="url" class="form-control" name="imagen2" id="id_imagen2" maxlength="100">
+            </div>
+            <input type="submit" class="btn btn-info btn-lg" value="Guardar" />
+        </form>
+  </div>
+{% endblock %}

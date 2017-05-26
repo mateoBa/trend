@@ -15,10 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from ml.urls import ml_router
 
 urlpatterns = [
     url(r'', include('ml.urls', namespace="ml")),
-    url(r'^api/v1/', include(ml_router.urls)),
+    url(r'^trend/', include('ml_django.urls', namespace='trend_django')),
     url(r'^admin/', admin.site.urls),
 ]

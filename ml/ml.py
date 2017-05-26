@@ -4,30 +4,30 @@ from ml_python_sdk.meli import Meli
 
 
 class ClientML(object):
-    def __init__(self):
-        self.__meli = Meli(client_id=settings.CLIENT_ID, client_secret=settings.CLIENT_SECRET)
-        self.__access_token = None
-        self.__token = None
+    def __init__(self, is_django=None):
+        if is_django:
+            self.__meli = Meli(client_id=settings.CLIENT_ID_FOR_DJANGO, client_secret=settings.CLIENT_SECRET_FOR_DJANGO)
+            self.__redirect_url = settings.REDIRECT_URL_FOR_DJANGO
+        else:
+            self.__meli = Meli(client_id=settings.CLIENT_ID, client_secret=settings.CLIENT_SECRET)
+            self.__redirect_url = settings.REDIRECT_URL
 
-    def set_token(self, token):
-        self.__token = token
-
-    def get_params(self):
-        self.__access_token = self.__meli.authorize(code=self.__token, redirect_URI=settings.REDIRECT_URL)
+    def get_params(self, token):
+        self.__meli.authorize(code=token, redirect_URI=self.__redirect_url)
         return {'access_token': self.__meli.access_token}
 
     def get_redirect_url_to_oauth(self):
-        return self.__meli.auth_url(redirect_URI=settings.REDIRECT_URL)
+        return self.__meli.auth_url(redirect_URI=self.__redirect_url)
 
-    def get_user_info(self):
-        return self.__meli.get(path="/users/me", params=self.get_params())
+    def get_user_info(self, token):
+        return self.__meli.get(path="/users/me", params=self.get_params(token))
 
-    def get_publications_by_client_id(self, client_id):
+    def get_publications_by_client_id(self, token, client_id):
         return self.__meli.get(path="/users/%s/items/search?status=active" % client_id,
-                               params=self.get_params())
+                               params=self.get_params(token))
 
-    def get_publication(self, publication_id):
-        return self.__meli.get(path="/items/%s" % publication_id, params=self.get_params())
+    def get_publication(self, token, publication_id):
+        return self.__meli.get(path="/items/%s" % publication_id, params=self.get_params(token))
 
-    def save_publication(self, body):
-        return self.__meli.post("/items", body, params=self.get_params())
+    def save_publication(self, token, body):
+        return self.__meli.post("/items", body, params=self.get_params(token))
