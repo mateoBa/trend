@@ -40,7 +40,7 @@ class CreatePublication(FormView):
     success_url = reverse_lazy('trend_django:publications')
 
     def form_valid(self, form):
-        print form.save(self.request.session['token'])
+        form.save(self.request.session['token'])
         return super(CreatePublication, self).form_valid(form)
 
 
