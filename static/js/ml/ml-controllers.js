@@ -19,7 +19,10 @@ ml_controller.controller('mainCtrl', ['$scope', '$window' , 'mlService',
             }
         )
     };
-    $scope.currentPath = $window.location.href;
+    $scope.show = function(){
+        var path = $window.location.href;
+        return (path.indexOf('/#!/publications') >= 0 || path.indexOf('/#!/create_publication') >= 0)
+    }
 }]);
 
 ml_controller.controller('publicationCtrl', ['$scope', '$window' , 'mlService',

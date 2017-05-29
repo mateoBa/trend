@@ -5,12 +5,9 @@ from ml_python_sdk.meli import Meli
 
 class ClientML(object):
     def __init__(self, is_django=None):
-        if is_django:
-            self.__meli = Meli(client_id=settings.CLIENT_ID_FOR_DJANGO, client_secret=settings.CLIENT_SECRET_FOR_DJANGO)
-            self.__redirect_url = settings.REDIRECT_URL_FOR_DJANGO
-        else:
-            self.__meli = Meli(client_id=settings.CLIENT_ID, client_secret=settings.CLIENT_SECRET)
-            self.__redirect_url = settings.REDIRECT_URL
+        self.__meli = Meli(client_id=settings.CLIENT_ID, client_secret=settings.CLIENT_SECRET)
+        host = settings.HOST_IP
+        self.__redirect_url = '%s/trend/publications' % host if is_django else '%s/callback_from_ml' % host
 
     def get_params(self, token):
         self.__meli.authorize(code=token, redirect_URI=self.__redirect_url)

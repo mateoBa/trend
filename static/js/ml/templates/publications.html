@@ -10,7 +10,8 @@
     <h3 class="text-muted">Publicaciones Activas</h3>
     <ul>
         <li ng-repeat="publication in publications |  orderBy:'-toString()'">
-            <a href="javascript:void(0)" data-toggle="modal" data-target="#publication_details" ng-click="get_publication_detail(publication)">{{ publication }}</a>
+            {{ publication }}
+            <a href="javascript:void(0)" data-toggle="modal" data-target="#publication_details" ng-click="get_publication_detail(publication)"><span class="glyphicon glyphicon-eye-open"></span></a>
         </li>
     </ul>
     <div id="publication_details" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
