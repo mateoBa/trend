@@ -15,6 +15,7 @@ Las 2 aplicaciones tienen funcionalidades similares.
 ```sh
 $ cd trend
 $ pip install -r requirements.txt
+$ python manage.py migrate
 ```
 
 Trend requiere [Bower.js](https://bower.io/) para installar las librerias.
