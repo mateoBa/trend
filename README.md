@@ -1,6 +1,6 @@
 # Trend
 
-Proyecto test para [Real Trends](http://www.real-trends.com/ar/), con este vas a poder crear y ver publicaciones activas en [Mercado Libre](https://www.mercadolibre.com.ar/).
+Proyecto para [Real Trends](http://www.real-trends.com/ar/), con este vas a poder crear y ver publicaciones activas en [Mercado Libre](https://www.mercadolibre.com.ar/).
 
 Este proyecto cuenta con 2 aplicaciones:
 
